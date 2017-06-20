@@ -1,0 +1,76 @@
+<?php
+include '../modelo/pedidos.php';
+     $pedidos = new pedido();
+     $resultado=$pedidos->insertarpedido();
+     ?>
+
+
+
+
+
+
+
+
+
+
+     <!DOCTYPE html>
+     <html>
+       <head>
+         <meta charset="utf-8">
+         <title>Formulario de pedidos </title>
+       </head>
+       <body>
+
+         <!--Formuario para la insercion de productos  -->
+         <form class="" action="registro.php" method="post">
+           Id:<input type="text" name="id" value=""><br><br>
+           Nombre:<input type="text" name="nombre" value=""><br><br>
+           Apellidos:<input type="text" name="apellidos" value=""><br><br>
+           Talla:<input type="text" name="talla" value=""><br><br>
+           Numero:<input type="text" name="numero" value=""><br><br>
+           Precio:<input type="text" name="precio" value=""><br><br>
+                  <input type="submit" name="Realizar pedido" value="Realizar pedido">
+         </form>
+
+     <!-- PHP para realizar la insercion de productos -->
+
+     <?php
+         if (isset($_POST['id']) && isset($_POST['nombre']) && isset($_POST['apellidos']) && isset($_POST['talla']) && isset($_POST['numero']) && isset($_POST['precio'])) {
+           include '../modelo/pedidos.php';
+                $pedidos = new pedido();
+                $resultado=$pedidos->insertarpedido();
+
+             while  {$resultado=$usuario->Insertarusuario($_POST["id"],  $_POST["nombre"], $_POST["apellidos"], $_POST["talla"], $_POST["numero"], $_POST["precio"]);
+               if ($resultado==null) {
+                 echo "Error";
+               }else {
+                 echo "Id: " .$resultado['id'] ."<br><br>";
+                 echo "nombre: " .$resultado['nombre'] ."<br><br>";
+                 echo "apellidos: " .$resultado['apellidos'] ."<br><br>";
+                 echo "talla: " .$resultado['talla'] ."<br><br>";
+                 echo "numero: " .$resultado['numero'] ."<br><br>";
+                 echo "precio: " .$resultado['precio'] ."<br><br>";
+                 }
+               }
+             }
+
+          ?>
+       </body>
+     </html>
+
+
+
+
+     <?php
+     include '/modelo/pedidos.php';
+     // Inserta un equipo
+     if ((isset($_POST['id'])) && (!empty($_POST['nombre'])) && (isset($_POST['apellidos'])) && (!empty($_POST['talla'])) && (isset($_POST['numero'])) && (!empty($_POST['precio']))) {
+       $equipo = new dbNBA();
+       $equipo->insertarpedido($_POST['id'],$_POST['nombre'],$_POST['apellido'],$_POST['talla'],$_POST['numero'],$_POST['precio']);
+       echo " enviado <br>";
+     }else {
+       echo "Faltan datos <br>";
+     }
+
+
+     ?>
